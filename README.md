@@ -35,7 +35,7 @@ When you're in, you should see this interface.
 ## How to use the level loader
 
 
-#### 1. Specify where your cmdline.txt is (If you don't know what cmdline.txt is, refer to "How to dump Epic Mickey")
+#### 1. Specify where your cmdline.txt is (If you don't know what cmdline.txt is, refer to [How to dump Epic Mickey](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#how-to-dump-epic-mickey))
 
 #### 2. At this point, you can select a level from either the quick access panel or the full list and press "save cmdline.txt"
 
