@@ -34,13 +34,12 @@ When you're in you should see this interface
 
 ### How to use the level loader
 
-  
 
 #### 1. Specify where your cmdline.txt is (If you don't know what cmdline.txt is refer to "How to dump Epic Mickey")
 
 #### 2. At this point you can select a level from either the quick access panel or the full list and press "save cmdline.txt"
 
-#### 3. After that find the location of your main.dol file ([Find main.dol](#1.-find-where-your-main.dol-file-is-located))
+#### 3. After that find the location of your main.dol file ([Find main.dol](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#1-find-where-your-maindol-file-is-located))
 
 #### 4. Open Dolphin
 
@@ -56,6 +55,7 @@ When you're in you should see this interface
   
 
 If you want to get into the game quicker you can specify where your Dolphin.exe & main.dol files are. If you do this getting into the game is as easy as clicking one button 
+
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951125763082571776/unknown.png)
 
   
@@ -74,7 +74,7 @@ And if there were no corruptions while dumping the files you should see a main.d
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951127828437561484/unknown.png)
 #### 2. Find where your cmdlist.txt is
 
-If you followed the [How to dump Epic Mickey](how-to-dump-epic-mickey) tutorial then you probably know where this file is but if you don't back out of the sys folder and head into the files folder. scroll down slightly and you should see the cmdlist.txt file
+If you followed the [How to dump Epic Mickey](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#1-find-where-your-maindol-file-is-located) tutorial then you probably know where this file is but if you don't back out of the sys folder and head into the files folder. scroll down slightly and you should see the cmdlist.txt file
 
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951129122682327110/unknown.png)
 
