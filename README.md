@@ -32,7 +32,7 @@ When you're in you should see this interface
 
   
 
-### How to use the level loader
+## How to use the level loader
 
 
 #### 1. Specify where your cmdline.txt is (If you don't know what cmdline.txt is refer to "How to dump Epic Mickey")
