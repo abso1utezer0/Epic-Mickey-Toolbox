@@ -5,7 +5,7 @@ Created by a complete dumbass who doesn't know how levels in EM works
 
   
 
-### How to download the level loader
+## How to download the level loader
 
   
 **1. Download the files on the releases page : https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/releases/tag/Release**
