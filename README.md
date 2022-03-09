@@ -74,7 +74,7 @@ And if there were no corruptions while dumping the files you should see a main.d
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951127828437561484/unknown.png)
 #### 2. Find where your cmdlist.txt is
 
-If you followed the [How to dump Epic Mickey](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#1-find-where-your-maindol-file-is-located) tutorial then you probably know where this file is but if you don't back out of the sys folder and head into the files folder. scroll down slightly and you should see the cmdlist.txt file
+If you followed the [How to dump Epic Mickey](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#how-to-dump-epic-mickey) tutorial then you probably know where this file is but if you don't back out of the sys folder and head into the files folder. scroll down slightly and you should see the cmdlist.txt file
 
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951129122682327110/unknown.png)
 
