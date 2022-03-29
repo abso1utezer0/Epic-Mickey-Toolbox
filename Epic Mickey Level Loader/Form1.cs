@@ -79,6 +79,8 @@ namespace Epic_Mickey_Level_Loader
                 string[] toArray = allContent.Split(' ');
                 toArray[0] = currentLevel;
                 allContent = string.Join(" ", toArray);
+
+                allContent = allContent.Replace("-Set PlayerEnableAllAbilities=false", "-Set PlayerEnableAllAbilities=true");
                 File.WriteAllText(savePath, allContent);
             }
             catch(Exception ex)
@@ -177,7 +179,7 @@ namespace Epic_Mickey_Level_Loader
             }
 
             Save();
-            var proc = System.Diagnostics.Process.Start(Settings1.Default.DolphinPath, '"' + Settings1.Default.EMPath + '"');
+            System.Diagnostics.Process.Start(Settings1.Default.DolphinPath, '"' + Settings1.Default.EMPath + '"');
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)

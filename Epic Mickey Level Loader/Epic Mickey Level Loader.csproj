@@ -5,6 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Epic_Mickey_Level_Loader</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>warnings</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
