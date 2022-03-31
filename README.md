@@ -1,8 +1,9 @@
 
-# Epic-Mickey-Level-Loader
+# Epic-Mickey-Launcher
 
 Created by a complete dumbass who doesn't know how levels in EM works
 
+(updated README.md coming soon)
   
 
 ## How to download the level loader
