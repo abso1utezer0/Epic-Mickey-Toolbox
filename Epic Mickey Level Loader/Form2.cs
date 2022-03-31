@@ -16,10 +16,13 @@ namespace Epic_Mickey_Level_Loader
         //random green quotes dedicated to mr slaycap (mr green)
         string[] s = { "'The grass is always greener on the other side'", "'It's that not easy being green'", "'Greeny-Game walked so Bluey-Game could run'" };
 
+        public static Form2 instance;
+
         public EventHandler onChange;
         public Form2()
         {
             InitializeComponent();
+            instance = this;
             onChange += OnChange;
         }
 

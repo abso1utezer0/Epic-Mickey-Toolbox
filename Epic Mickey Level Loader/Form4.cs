@@ -50,6 +50,7 @@ namespace Epic_Mickey_Level_Loader
             Settings1.Default.cmdline = "Game/Epic Mickey/DATA/files/cmdline.txt";
             Settings1.Default.Save();
             label1.Text = "Downloaded!";
+            Form2.instance.onChange.Invoke(this, EventArgs.Empty);
             MessageBox.Show("Download Finished! This window will now close.");
             this.Hide();
         }
@@ -58,6 +59,11 @@ namespace Epic_Mickey_Level_Loader
         {
             label1.Text = e.ProgressPercentage + "% Downloaded";
             progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
