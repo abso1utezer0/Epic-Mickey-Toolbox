@@ -1,8 +1,9 @@
 
-# Epic-Mickey-Level-Loader
+# Epic-Mickey-Launcher
 
 Created by a complete dumbass who doesn't know how levels in EM works
 
+(updated README.md coming soon)
   
 
 ## How to download the level loader
@@ -72,9 +73,9 @@ Click on the sys folder.
 And if there were no corruptions while dumping the files, you should see a main.dol file
 
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951127828437561484/unknown.png)
-#### 2. Find where your cmdlist.txt is
+#### 2. Find where your cmdline.txt is
 
-If you followed the [How to dump Epic Mickey](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#how-to-dump-epic-mickey) tutorial, then you probably know where this file is, but if you don't, back out of the sys folder and head into the files folder. scroll down slightly, and you should see the cmdlist.txt file
+If you followed the [How to dump Epic Mickey](https://github.com/KjubDusJub/Epic-Mickey-Level-Loader/tree/master#how-to-dump-epic-mickey) tutorial, then you probably know where this file is, but if you don't, back out of the sys folder and head into the files folder. scroll down slightly, and you should see the cmdline.txt file
 
 ![alt text](https://cdn.discordapp.com/attachments/826740264294416428/951129122682327110/unknown.png)
 
