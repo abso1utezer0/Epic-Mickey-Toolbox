@@ -21,6 +21,8 @@ namespace Epic_Mickey_Level_Loader
 
         public List<string> favourites = new List<string>();
 
+      
+
         public Form1()
         {
             InitializeComponent();
@@ -378,6 +380,11 @@ namespace Epic_Mickey_Level_Loader
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

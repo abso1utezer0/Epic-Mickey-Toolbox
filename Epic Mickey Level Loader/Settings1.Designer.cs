@@ -70,5 +70,17 @@ namespace Epic_Mickey_Level_Loader {
                 this["cmdline"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmDirectory {
+            get {
+                return ((string)(this["EmDirectory"]));
+            }
+            set {
+                this["EmDirectory"] = value;
+            }
+        }
     }
 }
