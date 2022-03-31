@@ -15,10 +15,12 @@ namespace Epic_Mickey_Level_Loader
 {
     public partial class Form4 : Form
     {
+        public static Form4 instance;
         public Form4()
         {
             InitializeComponent();
             label1.Text = "";
+            instance = this;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,6 +29,11 @@ namespace Epic_Mickey_Level_Loader
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            StartDownload();
+        }
+
+        public void StartDownload()
         {
             WebClient c = new WebClient();
             button1.Enabled = false;

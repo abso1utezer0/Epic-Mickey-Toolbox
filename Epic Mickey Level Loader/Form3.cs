@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -13,12 +14,20 @@ namespace Epic_Mickey_Level_Loader
 {
     public partial class Form3 : Form
     {
+        public static Form3 instance;
+
         //todo: get rid of functions that arent being used since they look like cr*p
         public Form3()
         {
             InitializeComponent();
+            instance = this;
             label1.Text = "PS. The mod installer is in very early development so for each new\nmod you install you may need to reinstall epic mickey\nin the main window unless you want the mods merged.";
-            label2.Text = "Remember to enable custom textures in dolphin by\nclicking on Graphics then going to the Advanced tab and then\nclicking Load Custom Textures"; 
+            label2.Text = "Remember to enable custom textures in dolphin by\nclicking on Graphics then going to the Advanced tab and then\nclicking Load Custom Textures";
+        }
+
+        public void UpdateButton(bool b)
+        {
+            button1.Enabled = b;
         }
         void Format()
         {
@@ -51,6 +60,21 @@ namespace Epic_Mickey_Level_Loader
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            Form4 f = new Form4();
+            f.Show();
+            f.StartDownload();
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q";
+            if(Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+                Directory.CreateDirectory(path);
+            }
         }
     }
 }

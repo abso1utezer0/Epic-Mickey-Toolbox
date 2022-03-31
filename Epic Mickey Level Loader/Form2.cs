@@ -69,6 +69,14 @@ namespace Epic_Mickey_Level_Loader
         {
             if(isReady)
             {
+                if(checkBox1.Checked)
+                {
+                    foreach (Process p in Process.GetProcessesByName("Dolphin"))
+                    {
+                        p.Kill();
+                    }
+                }
+               
                 System.Diagnostics.Process.Start(Settings1.Default.DolphinPath, '"' + Settings1.Default.EMPath + '"');
             }
         }

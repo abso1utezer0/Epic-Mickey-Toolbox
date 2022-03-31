@@ -151,8 +151,9 @@ namespace Epic_Mickey_Level_Loader
                     Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures");
                     Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q");
                 MoveFiles("tempTexture/custtext", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q");
+
             }
-      
+            Form3.instance.UpdateButton(true);
             MessageBox.Show(modName + " Has been installed!");
             finish();
         }
