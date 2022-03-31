@@ -34,22 +34,25 @@ namespace Epic_Mickey_Level_Loader
         }
         void Init()
         {
+           
             if (Settings1.Default.DolphinPath == "")
             {
                 label1.Text = "Please define your dolphin.exe path in Settings";
             }
             else
             {
-                if (Settings1.Default.EMPath == "")
-                {
-                    label1.Text = "Epic Mickey not found. Either download the game by pressing the download button or select your main.dol in the settings";
-                }
-                else
+                if(Settings1.Default.EMPath != "")
                 {
                     label1.Text = "Ready to play";
                     isReady = true;
                 }
             }
+            if (Settings1.Default.EMPath == "")
+            {
+                label1.Text = "Epic Mickey not found. Either download the game by pressing the download button or select your main.dol in the settings";
+            }
+        
+
         }
         void OnChange(object sender, EventArgs e)
         {
