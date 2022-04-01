@@ -19,6 +19,8 @@ namespace Epic_Mickey_Level_Loader
         public static Form2 instance;
 
         public EventHandler onChange;
+
+        public static bool GameInstalled;
         public Form2()
         {
             InitializeComponent();
@@ -34,25 +36,39 @@ namespace Epic_Mickey_Level_Loader
         }
         void Init()
         {
-           
+            button2.Enabled = false;
+            GameInstalled = false;
             if (Settings1.Default.DolphinPath == "")
             {
-                textBox1.Text = "Please define your dolphin.exe path in Settings";
+                    textBox1.Text = "Please define your dolphin.exe path in Settings";   
             }
             else
             {
-                if(Settings1.Default.EMPath != "")
+                if(EpicMickeyLauncher.CheckForDeletedFile(Settings1.Default.DolphinPath))
                 {
-                    textBox1.Text = "Ready to play";
-                    isReady = true;
+                    textBox1.Text = "Dolphin path does not exist.";
+                }
+                if (Settings1.Default.EMPath != "")
+                {
+                    if (EpicMickeyLauncher.CheckForDeletedFile(Settings1.Default.EMPath))
+                    {
+                        textBox1.Text = "Main.dol no longer exists. Please reinstall the game";
+                    }
+                    else
+                    {
+                        textBox1.Text = "Ready to play";
+                        button2.Enabled = true;
+                        isReady = true;
+                        GameInstalled = true;
+                    }
+
+                }
+                else
+                {
+                    textBox1.Text = "Main.dol path has not been assigned";
                 }
             }
-            if (Settings1.Default.EMPath == "")
-            {
-                textBox1.Text = "Epic Mickey not found. Either download the game by pressing the download button or select your main.dol in the settings";
-            }
-        
-
+          
         }
         void OnChange(object sender, EventArgs e)
         {

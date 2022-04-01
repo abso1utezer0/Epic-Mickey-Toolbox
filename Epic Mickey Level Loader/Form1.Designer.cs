@@ -84,6 +84,7 @@ namespace Epic_Mickey_Level_Loader
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button36 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -787,11 +788,24 @@ namespace Epic_Mickey_Level_Loader
             this.button37.Text = "DBC Hallway to Control Tower";
             this.button37.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(759, 519);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(152, 19);
+            this.checkBox2.TabIndex = 61;
+            this.checkBox2.Text = "Close Dolphin Instances";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 630);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.button37);
             this.Controls.Add(this.button36);
             this.Controls.Add(this.checkBox1);
@@ -914,6 +928,7 @@ namespace Epic_Mickey_Level_Loader
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

@@ -27,6 +27,12 @@ namespace Epic_Mickey_Level_Loader
         {
             InitializeComponent();
             label3.Text = "";
+
+            button1.Enabled = Form2.GameInstalled;
+            
+            label4.Text = "";
+
+          
         }
 
         private void DownloadTemplate_Load(object sender, EventArgs e)
@@ -38,6 +44,19 @@ namespace Epic_Mickey_Level_Loader
         {
             label2.Text = modName;
             pictureBox1.ImageLocation = iconLink;
+
+            if (Directory.Exists(Settings1.Default.EmDirectory))
+            {
+                if (File.Exists(Settings1.Default.EmDirectory + "/EML.dat"))
+                {
+                    string get = File.ReadAllText(Settings1.Default.EmDirectory + "/EML.dat");
+
+                    if (get == modName)
+                    {
+                        label4.Text = "Mod already installed!";
+                    }
+                }
+            }
 
             onDownloadStart += OnStartDownload;
             onDownloadFinish += OnDownloadFinish;
@@ -59,6 +78,11 @@ namespace Epic_Mickey_Level_Loader
         {
             button1.Text = "Download";
             button1.Enabled = true;
+
+            if(!downloading)
+            {
+                label4.Text = ""; 
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,9 +107,10 @@ namespace Epic_Mickey_Level_Loader
         void finish()
         {
             Directory.Delete("tempTexture", true);
-            downloading = false;
+           
             IsDownloading = false;
             onDownloadFinish.Invoke(this, EventArgs.Empty);
+            downloading = false;
 
             progressBar1.Visible = false;
             label3.Text = "";
@@ -121,6 +146,7 @@ namespace Epic_Mickey_Level_Loader
                         {
                             MessageBox.Show("Directory does not have DATA directory. Download Failed.");
                             finish();
+                            return;
                         }
                         else
                         {
@@ -134,6 +160,7 @@ namespace Epic_Mickey_Level_Loader
                     {
                         MessageBox.Show("Directory was not set. Download Failed.");
                         finish();
+                        return;
                     }
                 }
                 else
@@ -154,6 +181,8 @@ namespace Epic_Mickey_Level_Loader
 
             }
             Form3.instance.UpdateButton(true);
+            File.WriteAllText(Settings1.Default.EmDirectory + "/EML.dat", modName);
+            label4.Text = "Mod already installed!";
             MessageBox.Show(modName + " Has been installed!");
             finish();
         }

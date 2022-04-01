@@ -21,6 +21,7 @@ namespace Epic_Mickey_Level_Loader
         {
             InitializeComponent();
             instance = this;
+            button1.Enabled = Form2.GameInstalled;
             label1.Text = "PS. The mod installer is in very early development so for each new\nmod you install you may need to reinstall epic mickey\nin the main window unless you want the mods merged.";
             label2.Text = "Remember to enable custom textures in dolphin by\nclicking on Graphics then going to the Advanced tab and then\nclicking Load Custom Textures";
         }
@@ -34,6 +35,8 @@ namespace Epic_Mickey_Level_Loader
             WebClient client = new WebClient();
             string DownloadInfo = client.DownloadString("https://memerdev.com/EM/downloadinfo.txt");
             string[] info = DownloadInfo.Split("\n");
+
+            label3.Text = info.Length.ToString();
             foreach (string i in info)
             {
                 string output = i;
@@ -43,7 +46,7 @@ namespace Epic_Mickey_Level_Loader
                 cont.iconLink = all[1];
                 cont.modName = all[0];
                 cont.Initialize();
-                listBox1.Controls.Add(cont);
+                flowLayoutPanel1.Controls.Add(cont);
             }
         }
 

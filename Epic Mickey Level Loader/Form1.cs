@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+
 namespace Epic_Mickey_Level_Loader
 {
     public partial class Form1 : Form
@@ -181,7 +183,15 @@ namespace Epic_Mickey_Level_Loader
             }
 
             Save();
-            System.Diagnostics.Process.Start(Settings1.Default.DolphinPath, '"' + Settings1.Default.EMPath + '"');
+            if(checkBox2.Checked)
+            {
+                foreach (Process p in Process.GetProcessesByName("Dolphin"))
+                {
+                    p.Kill();
+                }
+            }
+            
+            Process.Start(Settings1.Default.DolphinPath, '"' + Settings1.Default.EMPath + '"');
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
