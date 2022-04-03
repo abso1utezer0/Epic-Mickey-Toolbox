@@ -136,14 +136,12 @@ namespace Epic_Mickey_Level_Loader
         }
         private void MoveFiles(string sourcePath, string targetPath, bool storeFiles = false, string getFilesFrom = "tempTexture/files/DATA", string replace = "tempTexture/files/")
         {
-            bool AlreadyExists = Directory.Exists("OG_FILE/DATA");
-            
             Directory.CreateDirectory("OG_FILE");
             Directory.CreateDirectory("OG_FILE/DATA");
             Directory.CreateDirectory("OG_FILE/DATA/files");
             foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
             {
-                if(storeFiles && !AlreadyExists)
+                if(storeFiles)
                 {
                     Directory.CreateDirectory(dirPath.Replace(sourcePath, "OG_FILE/DATA"));
                 }
@@ -152,7 +150,7 @@ namespace Epic_Mickey_Level_Loader
             }
             foreach (string newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
             {
-                if(storeFiles && File.Exists(newPath.Replace(getFilesFrom, targetPath)) && !AlreadyExists)
+                if(storeFiles && File.Exists(newPath.Replace(getFilesFrom, targetPath)) && !File.Exists(newPath.Replace(replace, "OG_FILE/")))
                 {
                     File.Copy(newPath.Replace(getFilesFrom, targetPath), newPath.Replace(replace, "OG_FILE/"), true);
                 }
