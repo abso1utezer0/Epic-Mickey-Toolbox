@@ -106,9 +106,9 @@ namespace Epic_Mickey_Level_Loader
             {
                 Form4 f = new Form4();
                 f.Show();
-            }
-         
 
+            }
+            File.WriteAllText(Settings1.Default.EmDirectory + "/EML.dat", "");
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q";
             if(Directory.Exists(path))
             {

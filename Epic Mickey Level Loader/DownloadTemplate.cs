@@ -81,11 +81,27 @@ namespace Epic_Mickey_Level_Loader
         void OnDownloadFinish(object sender, EventArgs e)
         {
             button1.Text = "Download";
+            if (dirExists("InstalledMods/" + modName))
+            {
+                button1.Text = "Install";
+            }
             button1.Enabled = true;
 
             if(!downloading)
             {
                 label4.Text = ""; 
+            }
+            if (Directory.Exists(Settings1.Default.EmDirectory))
+            {
+                if (File.Exists(Settings1.Default.EmDirectory + "/EML.dat"))
+                {
+                    string get = File.ReadAllText(Settings1.Default.EmDirectory + "/EML.dat");
+
+                    if (get == modName)
+                    {
+                        label4.Text = "Mod already installed!";
+                    }
+                }
             }
         }
 
@@ -178,7 +194,6 @@ namespace Epic_Mickey_Level_Loader
                 
                 if(Settings1.Default.CacheMods && !forceNoCache)
                 {
-                    MessageBox.Show("extract");
                     Directory.CreateDirectory("InstalledMods");
                     Directory.CreateDirectory("InstalledMods/" + modName);
                     ZipFile.ExtractToDirectory("texturepack.zip", "InstalledMods/" + modName, true);
@@ -186,7 +201,6 @@ namespace Epic_Mickey_Level_Loader
             });
             string getfiles = path + "/files/DATA";
             string replace = path + "/files/";
-            MessageBox.Show(path);
             if (dirExists(path))
             {
                 if (Settings1.Default.EmDirectory == "")
