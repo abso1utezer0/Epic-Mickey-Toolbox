@@ -21,6 +21,8 @@ namespace Epic_Mickey_Level_Loader
             InitializeComponent();
             label1.Text = "";
             instance = this;
+            Form2.onChange += Init;
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,9 +59,14 @@ namespace Epic_Mickey_Level_Loader
             Settings1.Default.cmdline = "Game/Epic Mickey/DATA/files/cmdline.txt";
             Settings1.Default.Save();
             label1.Text = "Downloaded!";
-            Form2.instance.onChange.Invoke(this, EventArgs.Empty);
+            Form2.onChange.Invoke(this, EventArgs.Empty);
             MessageBox.Show("Download Finished! This window will now close.");
             this.Hide();
+        }
+
+        void Init(object sender, EventArgs e)
+        {
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
         }
 
         private void C_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

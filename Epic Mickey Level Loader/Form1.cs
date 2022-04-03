@@ -23,13 +23,15 @@ namespace Epic_Mickey_Level_Loader
 
         public List<string> favourites = new List<string>();
 
-      
+        public static Form1 instance;
+        
 
         public Form1()
         {
+            instance = this;
             InitializeComponent();
-             
-            if(Settings1.Default.Favourites != "")
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
+            if (Settings1.Default.Favourites != "")
             {
                 string all = Settings1.Default.Favourites;
 
@@ -396,7 +398,42 @@ namespace Epic_Mickey_Level_Loader
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Form2.onChange += Init;
+        }
 
+        void Init(object sender, EventArgs e)
+        {
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            SetLevel("Levels/GV_ZoneA_Start.level");
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            SetLevel("Levels/GV_ZoneB_Start.level");
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            SetLevel("Levels/GV_ZoneC_Start.level");
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            SetLevel("Levels/GV_ZoneD_Start.level");
+        }
+
+        private void button42_Click(object sender, EventArgs e)
+        {
+            SetLevel("Levels/GV_ZoneF_Start.level");
+        }
+
+        private void button43_Click(object sender, EventArgs e)
+        {
+            SetLevel("Levels/GV_ZoneI_Start.level");
         }
     }
 }
