@@ -85,12 +85,19 @@ namespace Epic_Mickey_Level_Loader
             this.button36 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button38 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
+            this.button40 = new System.Windows.Forms.Button();
+            this.button41 = new System.Windows.Forms.Button();
+            this.button42 = new System.Windows.Forms.Button();
+            this.button43 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(790, 581);
+            this.button1.Location = new System.Drawing.Point(1053, 585);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 33);
             this.button1.TabIndex = 4;
@@ -319,7 +326,7 @@ namespace Epic_Mickey_Level_Loader
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(790, 542);
+            this.button2.Location = new System.Drawing.Point(1053, 546);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 33);
             this.button2.TabIndex = 13;
@@ -329,7 +336,7 @@ namespace Epic_Mickey_Level_Loader
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(806, 130);
+            this.button3.Location = new System.Drawing.Point(1069, 134);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 34);
             this.button3.TabIndex = 14;
@@ -339,7 +346,7 @@ namespace Epic_Mickey_Level_Loader
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(806, 174);
+            this.button4.Location = new System.Drawing.Point(1069, 178);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(118, 34);
             this.button4.TabIndex = 15;
@@ -360,7 +367,7 @@ namespace Epic_Mickey_Level_Loader
             // 
             this.pictureBox1.Image = global::Epic_Mickey_Level_Loader.Properties.Resources.Disney_Epic_Mickey_Logo;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(804, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(1067, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 116);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -793,18 +800,94 @@ namespace Epic_Mickey_Level_Loader
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(759, 519);
+            this.checkBox2.Location = new System.Drawing.Point(1022, 523);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(152, 19);
             this.checkBox2.TabIndex = 61;
             this.checkBox2.Text = "Close Dolphin Instances";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(782, 87);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 15);
+            this.label15.TabIndex = 62;
+            this.label15.Text = "Gremlin Village";
+            // 
+            // button38
+            // 
+            this.button38.Location = new System.Drawing.Point(782, 105);
+            this.button38.Name = "button38";
+            this.button38.Size = new System.Drawing.Size(159, 23);
+            this.button38.TabIndex = 63;
+            this.button38.Text = "Slalom";
+            this.button38.UseVisualStyleBackColor = true;
+            this.button38.Click += new System.EventHandler(this.button38_Click);
+            // 
+            // button39
+            // 
+            this.button39.Location = new System.Drawing.Point(782, 134);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(159, 23);
+            this.button39.TabIndex = 64;
+            this.button39.Text = "Ticket Booth";
+            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.button39_Click);
+            // 
+            // button40
+            // 
+            this.button40.Location = new System.Drawing.Point(782, 163);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(159, 23);
+            this.button40.TabIndex = 65;
+            this.button40.Text = "Jungle Boat Ride";
+            this.button40.UseVisualStyleBackColor = true;
+            this.button40.Click += new System.EventHandler(this.button40_Click);
+            // 
+            // button41
+            // 
+            this.button41.Location = new System.Drawing.Point(782, 192);
+            this.button41.Name = "button41";
+            this.button41.Size = new System.Drawing.Size(159, 23);
+            this.button41.TabIndex = 66;
+            this.button41.Text = "Asia Boat Ride";
+            this.button41.UseVisualStyleBackColor = true;
+            this.button41.Click += new System.EventHandler(this.button41_Click);
+            // 
+            // button42
+            // 
+            this.button42.Location = new System.Drawing.Point(782, 221);
+            this.button42.Name = "button42";
+            this.button42.Size = new System.Drawing.Size(159, 23);
+            this.button42.TabIndex = 67;
+            this.button42.Text = "World of Gremlins";
+            this.button42.UseVisualStyleBackColor = true;
+            this.button42.Click += new System.EventHandler(this.button42_Click);
+            // 
+            // button43
+            // 
+            this.button43.Location = new System.Drawing.Point(782, 250);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(159, 23);
+            this.button43.TabIndex = 68;
+            this.button43.Text = "Euro Boat Ride";
+            this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.button43_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 630);
+            this.ClientSize = new System.Drawing.Size(1199, 630);
+            this.Controls.Add(this.button43);
+            this.Controls.Add(this.button42);
+            this.Controls.Add(this.button41);
+            this.Controls.Add(this.button40);
+            this.Controls.Add(this.button39);
+            this.Controls.Add(this.button38);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.button37);
             this.Controls.Add(this.button36);
@@ -929,6 +1012,13 @@ namespace Epic_Mickey_Level_Loader
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button38;
+        private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.Button button41;
+        private System.Windows.Forms.Button button42;
+        private System.Windows.Forms.Button button43;
     }
 }
 

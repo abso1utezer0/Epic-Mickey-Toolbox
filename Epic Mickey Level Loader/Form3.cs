@@ -24,6 +24,8 @@ namespace Epic_Mickey_Level_Loader
             button1.Enabled = Form2.GameInstalled;
             label1.Text = "PS. The mod installer is in very early development so for each new\nmod you install you may need to reinstall epic mickey\nin the main window unless you want the mods merged.";
             label2.Text = "Remember to enable custom textures in dolphin by\nclicking on Graphics then going to the Advanced tab and then\nclicking Load Custom Textures";
+            Form2.onChange += Init;
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
         }
 
         public void UpdateButton(bool b)
@@ -49,6 +51,10 @@ namespace Epic_Mickey_Level_Loader
                 flowLayoutPanel1.Controls.Add(cont);
             }
         }
+        void Init(object sender, EventArgs e)
+        {
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
+        }
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -64,14 +70,45 @@ namespace Epic_Mickey_Level_Loader
         {
 
         }
+        private void MoveFiles(string sourcePath, string targetPath, bool storeFiles = false)
+        {
+            Directory.CreateDirectory("OG_FILE");
+            Directory.CreateDirectory("OG_FILE/DATA");
+            Directory.CreateDirectory("OG_FILE/DATA/files");
+            foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+            {
+                if (storeFiles)
+                {
+                    Directory.CreateDirectory(dirPath.Replace(sourcePath, "OG_FILE/DATA"));
+                }
 
+                Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
+            }
+            foreach (string newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+            {
+                if (storeFiles && File.Exists(newPath.Replace("tempTexture/files/DATA", targetPath)))
+                {
+                    File.Copy(newPath.Replace("tempTexture/files/DATA", targetPath), newPath.Replace("tempTexture/files/", "OG_FILE/"), true);
+                }
+
+                File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            Form4 f = new Form4();
-            f.Show();
-            f.StartDownload();
+            if (Directory.Exists("OG_FILE/DATA"))
+            {
+                MoveFiles("OG_FILE/DATA", Settings1.Default.EmDirectory + "/DATA");
+                Directory.Delete("OG_FILE", true);
+            }
+            else
+            {
+                Form4 f = new Form4();
+                f.Show();
 
+            }
+            File.WriteAllText(Settings1.Default.EmDirectory + "/EML.dat", "");
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q";
             if(Directory.Exists(path))
             {

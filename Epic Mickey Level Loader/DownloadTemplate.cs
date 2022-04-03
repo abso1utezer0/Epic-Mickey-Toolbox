@@ -20,8 +20,8 @@ namespace Epic_Mickey_Level_Loader
         public string iconLink;
         public static bool IsDownloading;
         bool downloading;
-        public EventHandler onDownloadStart;
-        public EventHandler onDownloadFinish;
+        public static EventHandler onDownloadStart;
+        public static EventHandler onDownloadFinish;
 
         public DownloadTemplate()
         {
@@ -57,6 +57,10 @@ namespace Epic_Mickey_Level_Loader
                     }
                 }
             }
+            if (dirExists("InstalledMods/" + modName))
+            {
+                button1.Text = "Install";
+            }
 
             onDownloadStart += OnStartDownload;
             onDownloadFinish += OnDownloadFinish;
@@ -77,20 +81,44 @@ namespace Epic_Mickey_Level_Loader
         void OnDownloadFinish(object sender, EventArgs e)
         {
             button1.Text = "Download";
+            if (dirExists("InstalledMods/" + modName))
+            {
+                button1.Text = "Install";
+            }
             button1.Enabled = true;
 
             if(!downloading)
             {
                 label4.Text = ""; 
             }
+            if (Directory.Exists(Settings1.Default.EmDirectory))
+            {
+                if (File.Exists(Settings1.Default.EmDirectory + "/EML.dat"))
+                {
+                    string get = File.ReadAllText(Settings1.Default.EmDirectory + "/EML.dat");
+
+                    if (get == modName)
+                    {
+                        label4.Text = "Mod already installed!";
+                    }
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(!IsDownloading)
+            if(Directory.Exists("InstalledMods/" + modName))
             {
-                Download();
+                Install("InstalledMods/" + modName, true);
             }
+            else
+            {
+                if (!IsDownloading)
+                {
+                    Download();
+                }
+            }
+          
         }
         void Download()
         {
@@ -106,8 +134,15 @@ namespace Epic_Mickey_Level_Loader
         }
         void finish()
         {
-            Directory.Delete("tempTexture", true);
-           
+            if(Directory.Exists("tempTexture"))
+            {
+                Directory.Delete("tempTexture", true);
+            }
+            
+            if(File.Exists("texturepack.zip"))
+            {
+                File.Delete("texturepack.zip");
+            }
             IsDownloading = false;
             onDownloadFinish.Invoke(this, EventArgs.Empty);
             downloading = false;
@@ -115,31 +150,64 @@ namespace Epic_Mickey_Level_Loader
             progressBar1.Visible = false;
             label3.Text = "";
         }
-        private void MoveFiles(string sourcePath, string targetPath)
+        private void MoveFiles(string sourcePath, string targetPath, bool storeFiles = false, string getFilesFrom = "tempTexture/files/DATA", string replace = "tempTexture/files/")
         {
+            Directory.CreateDirectory("OG_FILE");
+            Directory.CreateDirectory("OG_FILE/DATA");
+            Directory.CreateDirectory("OG_FILE/DATA/files");
             foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
             {
+                if(storeFiles)
+                {
+                    Directory.CreateDirectory(dirPath.Replace(sourcePath, "OG_FILE/DATA"));
+                }
+               
                 Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
             }
             foreach (string newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
             {
+                if(storeFiles && File.Exists(newPath.Replace(getFilesFrom, targetPath)) && !File.Exists(newPath.Replace(replace, "OG_FILE/")))
+                {
+                    File.Copy(newPath.Replace(getFilesFrom, targetPath), newPath.Replace(replace, "OG_FILE/"), true);
+                }
                 File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
             }
         }
-        private async void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             Directory.CreateDirectory("tempTexture");
+            Install();
+        }
+        async void Install(string path = "tempTexture", bool forceNoCache = false)
+        {
+            if (Settings1.Default.OgFileReinstate && File.Exists("OG_FILE/DATA"))
+            {
+                MoveFiles("OG_FILE/DATA", Settings1.Default.EmDirectory + "/DATA");
+            }
             label3.Text = "Installing... This might take a while";
             await Task.Factory.StartNew(() =>
             {
-                ZipFile.ExtractToDirectory("texturepack.zip", "tempTexture", true);
+                if(File.Exists("texturepack.zip"))
+                {
+                    ZipFile.ExtractToDirectory("texturepack.zip", "tempTexture", true);
+                }
+                
+                if(Settings1.Default.CacheMods && !forceNoCache)
+                {
+                    Directory.CreateDirectory("InstalledMods");
+                    Directory.CreateDirectory("InstalledMods/" + modName);
+                    ZipFile.ExtractToDirectory("texturepack.zip", "InstalledMods/" + modName, true);
+                }
             });
-            if(dirExists("tempTexture/files"))
+            string getfiles = path + "/files/DATA";
+            string replace = path + "/files/";
+            if (dirExists(path))
             {
                 if (Settings1.Default.EmDirectory == "")
                 {
                     MessageBox.Show("Your Epic Mickey dump directory has not been set. Please find the path to your dump and set it here");
                     FolderBrowserDialog folder = new FolderBrowserDialog();
+                 
                     if (folder.ShowDialog() == DialogResult.OK)
                     {
                         if (!dirExists(folder.SelectedPath + "/DATA"))
@@ -152,8 +220,8 @@ namespace Epic_Mickey_Level_Loader
                         {
                             Settings1.Default.EmDirectory = folder.SelectedPath;
                             Settings1.Default.Save();
-
-                            MoveFiles("tempTexture/files/DATA", Settings1.Default.EmDirectory + "/DATA");
+                            
+                            MoveFiles(path + "/files/DATA", Settings1.Default.EmDirectory + "/DATA", true, getfiles, replace);
                         }
                     }
                     else
@@ -165,19 +233,19 @@ namespace Epic_Mickey_Level_Loader
                 }
                 else
                 {
-                    MoveFiles("tempTexture/files/DATA", Settings1.Default.EmDirectory + "/DATA");
+                    MoveFiles(path +"/files/DATA", Settings1.Default.EmDirectory + "/DATA", true, getfiles, replace);
                 }
-            
-                
+
+
             }
-            if(dirExists("tempTexture/custtext"))
+            if (dirExists(path + "/custtext"))
             {
                 //this is a complete gutter but until i find a better way to do this its gonna stay like this
-                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator");
-                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load");
-                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures");
-                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q");
-                MoveFiles("tempTexture/custtext", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q");
+                MoveFiles(path + "/custtext", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Dolphin Emulator/Load/Textures/SEME4Q");
 
             }
             Form3.instance.UpdateButton(true);

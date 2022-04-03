@@ -82,5 +82,41 @@ namespace Epic_Mickey_Level_Loader {
                 this["EmDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DarkMode {
+            get {
+                return ((bool)(this["DarkMode"]));
+            }
+            set {
+                this["DarkMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OgFileReinstate {
+            get {
+                return ((bool)(this["OgFileReinstate"]));
+            }
+            set {
+                this["OgFileReinstate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CacheMods {
+            get {
+                return ((bool)(this["CacheMods"]));
+            }
+            set {
+                this["CacheMods"] = value;
+            }
+        }
     }
 }

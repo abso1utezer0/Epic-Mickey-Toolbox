@@ -18,7 +18,7 @@ namespace Epic_Mickey_Level_Loader
 
         public static Form2 instance;
 
-        public EventHandler onChange;
+        public static EventHandler onChange;
 
         public static bool GameInstalled;
         public Form2()
@@ -38,6 +38,7 @@ namespace Epic_Mickey_Level_Loader
         {
             button2.Enabled = false;
             GameInstalled = false;
+            Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
             if (Settings1.Default.DolphinPath == "")
             {
                     textBox1.Text = "Please define your dolphin.exe path in Settings";   
