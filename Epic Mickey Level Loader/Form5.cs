@@ -71,40 +71,35 @@ namespace Epic_Mickey_Level_Loader
                 if (Directory.Exists(fold.SelectedPath + "/DATA"))
                 {
                     string emPath = fold.SelectedPath;
-                    MessageBox.Show("Please assign your main.dol");
-                    OpenFileDialog f = new OpenFileDialog();
-                    if(f.ShowDialog() == DialogResult.OK)
+                    if(File.Exists(emPath + "/DATA/sys/main.dol"))
                     {
-                        if(f.SafeFileName == "main.dol")
+                        string maindol = emPath + "/DATA/sys/main.dol";
+                     
+                       
+                                string cmdline = emPath + "/DATA/files/cmdline.txt";
+                                if(File.Exists(cmdline))
                         {
-                            string maindol = f.FileName;
-                            MessageBox.Show("Please assign your cmdline.txt");
-                            f = new OpenFileDialog();
-                            if(f.ShowDialog() == DialogResult.OK)
-                            {
-                                if(f.SafeFileName == "cmdline.txt")
-                                {
-                                    string cmdline = f.FileName;
+                            Settings1.Default.EmDirectory = emPath;
+                            Settings1.Default.EMPath = maindol;
+                            Settings1.Default.cmdline = cmdline;
+                            Settings1.Default.Save();
 
-                                    Settings1.Default.EmDirectory = emPath;
-                                    Settings1.Default.EMPath = maindol;
-                                    Settings1.Default.cmdline = cmdline;
-                                    Settings1.Default.Save();
-
-                                    Form2.onChange.Invoke(this, EventArgs.Empty);
-                                    MessageBox.Show("Success!");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("File is not called cmdline.txt");
-                                }
-                            }
+                            Form2.onChange.Invoke(this, EventArgs.Empty);
+                            MessageBox.Show("Success!");
                         }
                         else
                         {
-                            MessageBox.Show("File is not called main.dol");
+                            MessageBox.Show("Assign Failed");
                         }
+                                  
+                             
+               
                     }
+                    else
+                    {
+                        MessageBox.Show("Assign Failed");
+                    }
+                  
                 }
                 else
                 {
