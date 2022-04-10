@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Epic_Mickey_Level_Loader
 {
@@ -21,11 +17,15 @@ namespace Epic_Mickey_Level_Loader
         public static EventHandler onChange;
 
         public static bool GameInstalled;
+        public static string version = "v.1.4";
         public Form2()
         {
             InitializeComponent();
             instance = this;
             onChange += OnChange;
+         
+          
+
         }
 
         bool isReady;
@@ -34,7 +34,7 @@ namespace Epic_Mickey_Level_Loader
         {
             Init();
         }
-        void Init()
+       async void Init()
         {
             button2.Enabled = false;
             GameInstalled = false;
@@ -69,7 +69,15 @@ namespace Epic_Mickey_Level_Loader
                     textBox1.Text = "Main.dol path has not been assigned";
                 }
             }
-          
+            bool updateAvailable = false;
+            await Task.Run(() =>
+            {
+                WebClient web = new WebClient();
+                string v = web.DownloadString("https://memerdev.com/eml/ver.txt");
+                updateAvailable = v != version;
+            });
+            button6.Enabled = updateAvailable;
+
         }
         void OnChange(object sender, EventArgs e)
         {
@@ -117,7 +125,7 @@ namespace Epic_Mickey_Level_Loader
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo
             {
-                FileName = "http://www.webpage.com",
+                FileName = "https://memerdev.com",
                 UseShellExecute = true
             });
         }
@@ -137,6 +145,18 @@ namespace Epic_Mickey_Level_Loader
             Form5 f = new Form5();
             f.MainForm = this;
             f.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(File.Exists("emlupdate.exe"))
+            {
+                Process.Start("emlupdate.exe");
+            }
+            else
+            {
+                MessageBox.Show("Can't update - Update client not found");
+            }
         }
     }
 }

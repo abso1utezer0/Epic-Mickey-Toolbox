@@ -101,6 +101,57 @@ namespace Epic_Mickey_Level_Loader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon emllogo {
+            get {
+                object obj = ResourceManager.GetObject("emllogo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [
+        ///    {
+        ///        &quot;path&quot;: &quot;Levels/Main_Menu.Level&quot;,
+        ///        &quot;name&quot;: &quot;Start Screen&quot;
+        ///    },
+        ///    {
+        ///        &quot;path&quot;: &quot;Levels/GV_ZoneA_Start.level&quot;,
+        ///        &quot;name&quot;: &quot;GV - Slalom&quot;
+        ///    },
+        ///    {
+        ///        &quot;path&quot;: &quot;Levels/GV_ZoneB_Start.level&quot;,
+        ///        &quot;name&quot;: &quot;GV - Ticket Booth&quot;
+        ///    },
+        ///    {
+        ///        &quot;path&quot;: &quot;Levels/GV_ZoneC_Start.level&quot;,
+        ///        &quot;name&quot;: &quot;GV - Jungle Boat Ride&quot;
+        ///    },
+        ///    {
+        ///        &quot;path&quot;: &quot;Levels/GV_ZoneD_Start.level&quot;,
+        ///        &quot;name&quot;: &quot;GV - Asiaboat Ride&quot;
+        ///    },
+        ///    {
+        ///        &quot;path [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string levels {
+            get {
+                return ResourceManager.GetString("levels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mickeyhead {
+            get {
+                object obj = ResourceManager.GetObject("mickeyhead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap screen {

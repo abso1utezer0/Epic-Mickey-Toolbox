@@ -22,7 +22,6 @@ namespace Epic_Mickey_Level_Loader
             InitializeComponent();
             instance = this;
             button1.Enabled = Form2.GameInstalled;
-            label1.Text = "PS. The mod installer is in very early development so for each new\nmod you install you may need to reinstall epic mickey\nin the main window unless you want the mods merged.";
             label2.Text = "Remember to enable custom textures in dolphin by\nclicking on Graphics then going to the Advanced tab and then\nclicking Load Custom Textures";
             Form2.onChange += Init;
             Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);

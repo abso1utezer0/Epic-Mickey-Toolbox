@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Epic_Mickey_Level_Loader
 {
@@ -24,13 +25,22 @@ namespace Epic_Mickey_Level_Loader
         public List<string> favourites = new List<string>();
 
         public static Form1 instance;
-        
-
+        List<Level> items = new List<Level>();
         public Form1()
         {
             instance = this;
             InitializeComponent();
+            string json = Properties.Resources.levels;
+            items = JsonConvert.DeserializeObject<List<Level>>(json);
+
+            listBox1.Items.Clear();
+            foreach(Level l in items)
+            {
+                listBox1.Items.Add(l.name);
+            }
+
             Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
+
             if (Settings1.Default.Favourites != "")
             {
                 string all = Settings1.Default.Favourites;
@@ -106,7 +116,7 @@ namespace Epic_Mickey_Level_Loader
         {
             if (listBox1.Items[listBox1.SelectedIndex].ToString() != null)
             {
-                currentLevel = listBox1.Items[listBox1.SelectedIndex].ToString();
+                currentLevel = items.Find(n => n.name == listBox1.Items[listBox1.SelectedIndex].ToString()).path;
                 label3.Text = "Current Selected Level: " + currentLevel;
             }
         }
@@ -204,7 +214,7 @@ namespace Epic_Mickey_Level_Loader
             }
             if (listBox2.Items[listBox2.SelectedIndex].ToString() != null)
             {
-                currentLevel = listBox2.Items[listBox2.SelectedIndex].ToString();
+                currentLevel = items.Find(n => n.name == listBox2.Items[listBox2.SelectedIndex].ToString()).path;
                 label3.Text = "Current Selected Level: " + currentLevel;
             }
         }
@@ -435,5 +445,10 @@ namespace Epic_Mickey_Level_Loader
         {
             SetLevel("Levels/GV_ZoneI_Start.level");
         }
+    }
+    public class Level
+    {
+        public string path;
+        public string name;
     }
 }
