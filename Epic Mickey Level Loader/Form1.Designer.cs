@@ -110,9 +110,9 @@ namespace Epic_Mickey_Level_Loader
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
+            this.label2.Size = new System.Drawing.Size(186, 15);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Levels";
+            this.label2.Text = "Levels - Provided by RampantLeaf";
             // 
             // listBox1
             // 
@@ -365,7 +365,7 @@ namespace Epic_Mickey_Level_Loader
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Epic_Mickey_Level_Loader.Properties.Resources.Disney_Epic_Mickey_Logo;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(1067, 12);
             this.pictureBox1.Name = "pictureBox1";
