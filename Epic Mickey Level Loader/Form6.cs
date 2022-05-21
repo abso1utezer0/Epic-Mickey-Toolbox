@@ -102,7 +102,7 @@ namespace Epic_Mickey_Level_Loader
             {
                 using (BinaryWriter bw = new BinaryWriter(read))
                 {
-                    bw.Seek(offset, SeekOrigin.Begin); //jump to position money
+                    bw.Seek(offset, SeekOrigin.Begin);
 
                     bw.Write(towrite);
                 }
@@ -191,7 +191,7 @@ namespace Epic_Mickey_Level_Loader
         
 
 
-                    index++; // experimental; perhaps try it
+                    index++;
                 }
             }
 
