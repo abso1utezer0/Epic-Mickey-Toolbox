@@ -35,7 +35,9 @@ namespace Epic_Mickey_Level_Loader
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -83,11 +85,22 @@ namespace Epic_Mickey_Level_Loader
             this.flowLayoutPanel1.Size = new System.Drawing.Size(411, 401);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Epic_Mickey_Level_Loader.Properties.Resources.EpicMickeyModdingTool;
+            this.pictureBox2.Location = new System.Drawing.Point(516, 391);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(232, 47);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 450);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
@@ -99,6 +112,7 @@ namespace Epic_Mickey_Level_Loader
             this.Text = "Mod Installer";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +124,6 @@ namespace Epic_Mickey_Level_Loader
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

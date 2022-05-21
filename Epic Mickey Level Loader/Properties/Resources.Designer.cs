@@ -111,6 +111,46 @@ namespace Epic_Mickey_Level_Loader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EpicMickeyAudioConverter {
+            get {
+                object obj = ResourceManager.GetObject("EpicMickeyAudioConverter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EpicMickeyLevelLoader {
+            get {
+                object obj = ResourceManager.GetObject("EpicMickeyLevelLoader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EpicMickeyModdingTool {
+            get {
+                object obj = ResourceManager.GetObject("EpicMickeyModdingTool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] header {
+            get {
+                object obj = ResourceManager.GetObject("header", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [
         ///    {
         ///        &quot;path&quot;: &quot;Levels/Main_Menu.Level&quot;,

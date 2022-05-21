@@ -158,5 +158,16 @@ namespace Epic_Mickey_Level_Loader
                 MessageBox.Show("Can't update - Update client not found");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Form6 f = new Form6();
+            f.Show();
+        }
     }
 }
