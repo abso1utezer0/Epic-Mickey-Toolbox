@@ -73,7 +73,7 @@ namespace Epic_Mickey_Level_Loader
             await Task.Run(() =>
             {
                 WebClient web = new WebClient();
-                string v = web.DownloadString("https://memerdev.com/eml/ver.txt");
+                string v = web.DownloadString("https://www.epicmickey.net/emt/ver.txt");
                 updateAvailable = v != version;
             });
             button6.Enabled = updateAvailable;
@@ -125,7 +125,7 @@ namespace Epic_Mickey_Level_Loader
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo
             {
-                FileName = "https://memerdev.com",
+                FileName = "https://www.epicmickey.net",
                 UseShellExecute = true
             });
         }
