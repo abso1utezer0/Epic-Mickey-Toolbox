@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace Epic_Mickey_Level_Loader
 {
@@ -26,6 +27,9 @@ namespace Epic_Mickey_Level_Loader
 
         public static Form1 instance;
         List<Level> items = new List<Level>();
+
+
+      
         public Form1()
         {
             instance = this;
@@ -38,7 +42,7 @@ namespace Epic_Mickey_Level_Loader
             {
                 listBox1.Items.Add(l.name);
             }
-
+         
             Form5.ChangeTheme(this.Controls, this, Settings1.Default.DarkMode);
 
             if (Settings1.Default.Favourites != "")
