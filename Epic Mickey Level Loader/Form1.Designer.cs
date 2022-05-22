@@ -363,7 +363,7 @@ namespace Epic_Mickey_Level_Loader
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 15);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Created by memer#1024";
+            this.label1.Text = "Created and maintained by Memer, modified by epicmickey.net.";
             // 
             // pictureBox1
             // 

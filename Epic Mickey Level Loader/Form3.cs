@@ -34,7 +34,7 @@ namespace Epic_Mickey_Level_Loader
         void Format()
         {
             WebClient client = new WebClient();
-            string DownloadInfo = client.DownloadString("https://memerdev.com/EM/downloadinfo.txt");
+            string DownloadInfo = client.DownloadString("https://www.epicmickey.net/emt/modpaths.txt");
             string[] info = DownloadInfo.Split("\n");
 
             label3.Text = info.Length.ToString();
